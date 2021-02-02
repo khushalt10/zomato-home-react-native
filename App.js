@@ -13,12 +13,14 @@ import ExploreScreen from './screens/ExploreScreen.js';
 
 const Header=()=>{
   return(
-    <View style={{ backgroundColor: 'white', padding: 15, marginTop: Constants.statusBarHeight,
-    borderBottomWidth: 0.5 , borderColor: 'gray'}}>
+    <View style={{ backgroundColor: 'white', padding: 15, 
+     marginTop: 5}}>
     <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-    <Octicons name="location" size={28} color="black" />
+    <Entypo name="location" size={28} color="black" />
      <Text style={{fontWeight: 'bold', fontSize: 18,
-     fontFamily: 'sans-serif'
+     fontFamily: 'sans-serif',
+     borderBottomWidth: 1,
+     paddingBottom: 5,
      
      }}>Your Home Address </Text>
      <MaterialCommunityIcons name="qrcode-scan" size={24} color="black" />
@@ -37,21 +39,21 @@ const bottomTabs = ()=>{
   return(
     <Tabs.Navigator   initialRouteName='Home'
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused, color = '#cccccc', size }) => {
             let iconName;
 
             if (route.name === 'Order') {
-               return <Feather name="shopping-bag" size={29} color={color} />
+               return <Feather name="shopping-bag" size={28} color={color} />
             } else if (route.name === 'Go Out') {
              return <MaterialCommunityIcons name="shoe-print" size={29} color={color} />
-            }else if (route.name === 'Gold') {
-            return <MaterialCommunityIcons name="rhombus-split" size={29} color={color} />
+            }else if (route.name === 'Pro') {
+            return <MaterialCommunityIcons name="crown" size={29} color={color} />
             }
             else if (route.name === 'Explore') {
             return <MaterialCommunityIcons name="compass-outline" size={29} color={color} />
             }
             else if (route.name === 'Profile') {
-            return  <Ionicons name="md-beer" size={28} color={color} />
+            return  <FontAwesome name="circle" size={28} color={'black'} />
             }
 
 
@@ -61,10 +63,11 @@ const bottomTabs = ()=>{
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'red',
+          activeTintColor: 'black',
           inactiveTintColor: 'gray',
         indicatorStyle:{
-          backgroundColor: 'green'
+          borderTopColor: 'red',
+          borderTopWidth: 1
         },
       
          borderWidth: 2,
@@ -75,8 +78,7 @@ const bottomTabs = ()=>{
         }}>
       <Tabs.Screen name="Order" component={OrderScreen}/>
        <Tabs.Screen name="Go Out" component={GoOutScreen}/>
-        <Tabs.Screen name="Gold" component={GoldScreen}/>
-        <Tabs.Screen name="Explore" component={ExploreScreen}/>
+        <Tabs.Screen name="Pro" component={GoldScreen}/>
          <Tabs.Screen name="Profile" component={ProfileScreen}/>
     </Tabs.Navigator>
   )

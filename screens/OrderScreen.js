@@ -58,17 +58,18 @@ export default class OrderScreen extends React.Component{
   {
     return(
       <View style={{backgroundColor:'white'}}>
-     <View style={{borderWidth: 2, borderColor: '#ccc8c8', boxShadow: 1 ,padding: 12, margin: 8, borderRadius: 30}}>
+     <View style={{borderWidth: 2, borderColor: '#ccc8c8', boxShadow: 1 ,padding: 8, marginHorizontal: 15, marginVertical: 5, borderRadius: 30,}}>
     <View style={{flexDirection: 'row'}}>
     <AntDesign name="search1" size={24} color="red"  />
      <Text style={{marginLeft: 10, color: '#ccc8c8', fontSize: 16}}>  Restaurant name, cuisines or dish...</Text>
      </View>
      </View>
    
-      <ScrollView>
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ height: 70, borderBottomWidth: 1, borderBottomColor: '#f2f7f3'}}>
     <Text style={{ fontSize: 15,
     margin: 6,
+    marginLeft: 15,
     padding: 5,
     fontStyle: '',
     marginTop: 15,
@@ -84,23 +85,21 @@ export default class OrderScreen extends React.Component{
     <Text style={Styles.topnav}> Rating <AntDesign name={'caretdown'} /></Text>
     </ScrollView>
 
-    <View style={{ display: 'flex' }}>
-      <View>
-          
+    <ScrollView>
+    <View style={{ display: 'flex', borderRadius: 10, flexDirection: 'row', justifyContent:'space-between', borderColor: '#a5fab3', borderWidth: 1, margin: 5, padding: 5, backgroundColor: '#f0fcf2' }}>
+      <View style={{ padding: 5}}>
+          <MaterialCommunityIcons name={'shield-check'} color='green' size={30} />
       </View>
-      <View>
+      <View style={{ padding: 5}}>
         <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sit dicta ea molestiae et voluptates vitae, maiores debitis earum.
+        Bird flue virus is sensitive to heat, so it's safe to consume cooked chicken and meat.
         </Text>
       </View>
     </View>
 
  <View style={{marginTop: 2}}/>
-      {ResturauntData.map(items=>{
-        return  <ResturantCard  name={items.name} uri={items.uri} type={items.type} />
-      })}
-      <Text style={{fontWeight: 'bold', fontSize: 22}}>  Top Brands in Spotlight</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <Text style={{fontWeight: 'bold', fontSize: 22}}>  Top Brands in Spotlight</Text>
       {
         Brands.map(item=>{
           return (
@@ -109,6 +108,9 @@ export default class OrderScreen extends React.Component{
         })
       }
        </ScrollView>
+      {ResturauntData.map(items=>{
+        return  <ResturantCard  name={items.name} uri={items.uri} type={items.type} />
+      })}
         {ResturauntData.map(items=>{
         return  <ResturantCard  name={items.name} uri={items.uri} type={items.type} />
       })}
