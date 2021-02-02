@@ -97,9 +97,13 @@ export default class OrderScreen extends React.Component{
       </View>
     </View>
 
+    <View style={{marginTop: 5}}>
+      <Image style={{ height: 200, width: 800, borderRadius: 10,}} source={require('../assets/banner.png')} />
+    </View>
+
  <View style={{marginTop: 2}}/>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <Text style={{fontWeight: 'bold', fontSize: 22}}>  Top Brands in Spotlight</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {
         Brands.map(item=>{
           return (
